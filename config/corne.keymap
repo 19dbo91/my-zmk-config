@@ -81,19 +81,19 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q            &kp W            &kp F                &kp P              &kp B                   &kp J      &kp L               &kp U                 &kp Y             &none              &kp BSPC
-&kp TAB     &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LEFT_CONTROL S  &hml LEFT_SHIFT T  &kp G                   &kp M      &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_META O  &kp SQT
-&none       &kp Z            &kp X            &kp C                &kp D              &kp V                   &kp K      &kp H               &kp COMMA             &kp DOT           &kp FSLH           &kp NON_US_BACKSLASH
-                                              &lt 3 MINUS          &mo 4              &mt DELETE BACKSPACE    &kp SPACE  &kp RET             &lt 1 PLUS
+&to 3      &kp Q            &kp W            &kp F                &kp P              &kp B                   &kp J      &kp L               &kp U                 &kp Y             &none              &to 1
+&lt 4 TAB  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LEFT_CONTROL S  &hml LEFT_SHIFT T  &kp G                   &kp M      &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_META O  &kp SQT
+&none      &kp Z            &kp X            &kp C                &kp D              &kp V                   &kp K      &kp H               &kp COMMA             &kp DOT           &kp FSLH           &kp NON_US_BACKSLASH
+                                             &none                &kp ESCAPE         &mt DELETE BACKSPACE    &kp SPACE  &kp RET             &none
             >;
         };
 
         rt_num {
             bindings = <
-&trans  &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans
-&trans  &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &trans
-                                    &mo 0         &trans        &trans          &trans        &trans        &mo 2
+&to 0  &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &to 2
+&none  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none
+&none  &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &none
+                                   &none         &trans        &trans          &trans        &trans        &none
             >;
         };
 
@@ -105,19 +105,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &trans
-&trans  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &trans
-&trans  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                          &trans    &trans    &trans       &trans     &trans     &trans
+&to 1  &none      &none        &kp AMPERSAND  &kp LEFT_PARENTHESIS  &none     &none      &kp RIGHT_PARENTHESIS  &kp HASH  &none         &none      &to 0
+&none  &kp TILDE  &kp PERCENT  &kp MINUS      &kp LBKT              &none     &none      &kp RBKT               &kp PLUS  &kp ASTERISK  &kp EQUAL  &none
+&none  &none      &none        &none          &kp LBRC              &none     &kp UNDER  &kp RBRC               &none     &none         &none      &none
+                               &trans         &trans                &trans    &trans     &trans                 &trans
             >;
         };
 
         lt_game {
             bindings = <
-&trans  &none   &kp Q   &kp W   &kp E   &kp R        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp A   &kp S   &kp D   &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
-                        &mo 4   &trans  &kp SPACE    &trans  &trans  &mo 0
+&to 4   &none   &kp Q   &kp W   &kp E   &kp R        &none   &none           &none           &none   &none      &to 0
+&trans  &trans  &kp A   &kp S   &kp D   &kp F        &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP  &kp RIGHT  &none
+&trans  &trans  &trans  &trans  &trans  &trans       &none   &none           &none           &none   &none      &none
+                        &none   &none   &kp SPACE    &trans  &trans          &none
             >;
         };
 
@@ -129,10 +129,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&bt BT_CLR  &none         &none         &none         &none         &none           &none     &none     &none   &none      &none   &trans
-&none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
-&none       &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans  &trans     &trans  &trans
-                                        &trans        &trans        &trans          &trans    &trans    &mo 3
+&to 0       &none         &none         &none         &none         &none           &none   &none   &none  &none  &none  &to 3
+&none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none   &none  &none  &none  &none
+&bt BT_CLR  &trans        &trans        &trans        &trans        &trans          &none   &none   &none  &none  &none  &none
+                                        &trans        &trans        &trans          &trans  &trans  &mo 3
             >;
         };
     };
