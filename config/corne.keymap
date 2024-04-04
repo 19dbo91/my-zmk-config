@@ -9,10 +9,71 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        hml: hml {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Home Row Mod-Tap, Left";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <36 37 38 39 40 41 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35>;
+            hold-trigger-on-release;
+        };
+
+        hmr: hmr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Home Row Mod-Tap, Right";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41>;
+            hold-trigger-on-release;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_at {
+            bindings = <&kp AT>;
+            key-positions = <13 22>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        combo_colon {
+            bindings = <&mt COLON SEMI>;
+            key-positions = <33 32>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        combo_bang {
+            bindings = <&kp EXCLAMATION>;
+            key-positions = <34 33>;
+        };
+
+        combo_caret {
+            bindings = <&kp CARET>;
+            key-positions = <34 35>;
+        };
+
+        combo_dollar {
+            bindings = <&kp DOLLAR>;
+            key-positions = <15 21>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        home {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -20,29 +81,23 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp F     &kp P  &kp B        &kp J    &kp L  &kp U      &kp Y    &kp SEMI  &kp BSPC
-&kp LCTRL  &kp A  &kp R  &kp S     &kp T  &kp G        &kp M    &kp N  &kp E      &kp I    &kp O     &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp D  &kp V        &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+&to 3    &kp Q            &kp W            &kp F                &kp P              &kp B                   &kp J      &kp L               &kp U                 &kp Y             &none              &to 1
+&kp TAB  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LEFT_CONTROL S  &hml LEFT_SHIFT T  &kp G                   &kp M      &hmr RIGHT_SHIFT N  &hmr RIGHT_CONTROL E  &hmr RIGHT_ALT I  &hmr RIGHT_META O  &kp SQT
+&none    &kp Z            &kp X            &kp C                &kp D              &kp V                   &kp K      &kp H               &kp COMMA             &kp DOT           &kp FSLH           &kp NON_US_BACKSLASH
+                                           &none                &kp ESCAPE         &mt DELETE BACKSPACE    &kp SPACE  &kp RET             &none
             >;
         };
 
-        lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
+        rt_num {
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
+&to 0  &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &to 2
+&none  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none
+&none  &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &none
+                                   &none         &trans        &trans          &trans        &trans        &none
             >;
         };
 
-        raise_layer {
+        rt2_sym {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -50,10 +105,34 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&to 1  &none      &none        &kp AMPERSAND  &kp LEFT_PARENTHESIS  &none     &none      &kp RIGHT_PARENTHESIS  &kp HASH  &none         &none      &to 0
+&none  &kp TILDE  &kp PERCENT  &kp MINUS      &kp LBKT              &none     &none      &kp RBKT               &kp PLUS  &kp ASTERISK  &kp EQUAL  &none
+&none  &none      &none        &none          &kp LBRC              &none     &kp UNDER  &kp RBRC               &none     &none         &none      &none
+                               &trans         &trans                &trans    &trans     &trans                 &trans
+            >;
+        };
+
+        lt_game {
+            bindings = <
+&to 4   &none   &kp Q   &kp W   &kp E   &kp R        &none   &none           &none           &none   &none      &to 0
+&trans  &trans  &kp A   &kp S   &kp D   &kp F        &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP  &kp RIGHT  &none
+&trans  &trans  &trans  &trans  &trans  &trans       &none   &none           &none           &none   &none      &none
+                        &none   &none   &kp SPACE    &trans  &trans          &none
+            >;
+        };
+
+        lt2_blue {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&to 0       &none         &none         &none         &none         &none           &none   &none   &none  &none  &none  &to 3
+&none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none   &none  &none  &none  &none
+&bt BT_CLR  &trans        &trans        &trans        &trans        &trans          &none   &none   &none  &none  &none  &none
+                                        &trans        &trans        &trans          &trans  &trans  &none
             >;
         };
     };
