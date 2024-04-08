@@ -5,8 +5,8 @@
   - with home row mods order: GUI, Alt, Ctrl, Shift
  
 ## TODO:
-  -[ ] Mod + Arrow
-  -[ ] Shift + Num
+  - [ ] Mod + Arrow
+  - [ ] Shift + Num
 
 
 
