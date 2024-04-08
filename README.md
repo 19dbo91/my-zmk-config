@@ -3,6 +3,11 @@
 ## Notes:
 - Base Layout: [Colemak mod-DH](https://colemakmods.github.io/mod-dh/)
   - with home row mods order: GUI, Alt, Ctrl, Shift
+ 
+## TODO:
+  -[ ] Mod + Arrow
+  -[ ] Shift + Num
+
 
 
 ## Reference
