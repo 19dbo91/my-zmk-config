@@ -15,7 +15,7 @@
 - [Josean Martinez](https://www.youtube.com/watch?v=wTMcH7u-vu0)
 #### Build guides for the Corne
 - [Joe Scotto](https://www.youtube.com/watch?v=FJgvi7WShxY)
-- 
+  
 #### Helped me decide/work other things
 - [Jan Lunge on Keyboard Layouts](https://www.youtube.com/watch?v=rhdMVXlnQIM)
 - [Ben Frain on keymapping](https://www.youtube.com/watch?v=Vy7IoQAe3oU)
@@ -24,10 +24,12 @@
 - [KB Layout - Colemak DH](https://colemakmods.github.io/mod-dh/)
 - [Home Row Mods - GACS](https://precondition.github.io/home-row-mods#gacs)
 
-
-
 #### The stores stuff from
 - [Typeractive](https://typeractive.xyz/)
   
 #### Practice!
 - [Ben Vallack on typing ](https://www.youtube.com/watch?v=sI-a64EVPPU)
+
+### Changes
+
+changed back to a keypad layout for numpad
